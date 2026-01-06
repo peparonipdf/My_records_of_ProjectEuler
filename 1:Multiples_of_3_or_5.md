@@ -2,7 +2,8 @@
 3の倍数または5の倍数であるような1000より小さい自然数をすべて足し合わせる．  
 for文を使い，1から999までのすべての自然数について，3か5で割り切れるかを確認すればよい．
 
-'''#include <iostream>
+```
+#include <iostream>
 using namespace std;
 
 int main() {
@@ -14,4 +15,5 @@ int main() {
     }
 
     cout << ans << endl;
-}'''
+}
+```
