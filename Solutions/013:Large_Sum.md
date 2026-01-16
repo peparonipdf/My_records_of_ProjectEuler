@@ -10,11 +10,12 @@
 using namespace std;
 
 string large_sum(string A, string B) {
+    //受け取った文字列の先頭に適切に0を付け足すことで，文字列の長さを一致させる
     string S = "";
     for (int i = 0; i < abs((int)A.size() - (int)B.size()); i++) {
         S += "0";
     }
-
+    
     if ((int)A.size() < (int)B.size()) {
         A = S + A;
     }
@@ -22,6 +23,7 @@ string large_sum(string A, string B) {
         B = S + B;
     }
 
+    //下の桁から和を計算
     int c = 0;
     string C = "";
     for (int i = 0; i < (int)A.size(); i++) {
