@@ -35,3 +35,33 @@ int main() {
     cout << ans / 2 << endl;
 }
 ```
+
+また，直角の存在判定は三平方の定理を用いてもできる．  
+{a, b, c}の最小値をA，最大値をC，a + b + c - A - C = Bとする．三平方の定理が成立するか調べるにはA + B = Cが成立するか調べればよいが，これを式変形すると，結局2 * max({a, b, c}) = a + b + cを満たすかどうか判定すればよいことがわかる．
+
+``` C++
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    long long ans = 0;
+    for (int x = 0; x <= 50; x++) {
+        for (int y = 0; y <= 50; y++) {
+            for (int z = 0; z <= 50; z++) {
+                for (int w = 0; w <= 50; w++) {
+                    if (y * z != x * w) {
+                        int a = x * x + y * y;
+                        int b = z * z + w * w;
+                        int c = (x - z) * (x - z) + (y - w) * (y - w);
+                        if (2 * max({a, b, c}) == a + b + c) {
+                            ans++;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    cout << ans / 2 << endl;
+}
+```
